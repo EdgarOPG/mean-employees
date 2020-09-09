@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const employeeRoutes = require('./routes/employee.routes');
+const cors = require('cors');
 
 const app = express();
 
@@ -14,6 +15,9 @@ app.set('port', process.env.PORT || 3000 );
 app.use(morgan('dev'));
 // Set JSON
 app.use(express.json());
+// Set Connection
+app.use(cors({origni: 'http://localhost:4200'}));
+
 
 //// Routes
 app.use('/api/employees', employeeRoutes);
