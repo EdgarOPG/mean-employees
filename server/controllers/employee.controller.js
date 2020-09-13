@@ -28,7 +28,7 @@ employeeController.editEmployee = async (req, res) => {
     res.json({ status: 'Employee updated' });
 }
 employeeController.deleteEmployee = async (req, res) => {
-    Employee.findByIdAndRemove(req.params.id)
+    await Employee.findByIdAndRemove(req.params.id)
     res.json({ status: 'Employee removed' });
 }
 module.exports = employeeController;
